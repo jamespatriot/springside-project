@@ -38,6 +38,10 @@
 		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
 		<!--
+		<jdbc.driver.groupId>org.postgresql</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>postgresql</jdbc.driver.artifactId>
+		<jdbc.driver.version>9.3-1100-jdbc3</jdbc.driver.version>
+
 			<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 			<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
 			<jdbc.driver.version>5.1.21</jdbc.driver.version>
@@ -255,11 +259,16 @@
 	        <scope>runtime</scope>
 	    </dependency>
 	      	
+		<!--<dependency>-->
+	 		<!--<groupId>org.bgee.log4jdbc-log4j2</groupId>-->
+			<!--<artifactId>log4jdbc-log4j2-jdbc4</artifactId>-->
+			<!--<version>1.15</version>-->
+			<!--<scope>runtime</scope>-->
+		<!--</dependency>-->
 		<dependency>
-	 		<groupId>org.bgee.log4jdbc-log4j2</groupId>
-			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
-			<version>1.15</version>
-			<scope>runtime</scope>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
 		</dependency>
 		<!-- LOGGING end -->
 
@@ -334,6 +343,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>

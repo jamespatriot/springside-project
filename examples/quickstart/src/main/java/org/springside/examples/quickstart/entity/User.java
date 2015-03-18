@@ -3,9 +3,7 @@ package org.springside.examples.quickstart.entity;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -25,6 +23,7 @@ public class User extends IdEntity {
 	private String salt;
 	private String roles;
 	private Date registerDate;
+	private List<Task> tasks;
 
 	public User() {
 	}
@@ -84,6 +83,15 @@ public class User extends IdEntity {
 
 	public void setRoles(String roles) {
 		this.roles = roles;
+	}
+
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
 	}
 
 	@Transient

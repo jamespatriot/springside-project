@@ -29,6 +29,8 @@
 			<props>
 				<!-- 命名规则 My_NAME->MyName -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop><!-- 对表结构仅进行验证，不进行更新与创建  creat,update none-->
+
 			</props>
 		</property>
 	</bean>
