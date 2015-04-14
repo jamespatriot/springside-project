@@ -15,6 +15,7 @@ import com.google.common.collect.ImmutableList;
 
 @Entity
 @Table(name = "ss_user")
+//@Access(AccessType.FIELD)
 public class User extends IdEntity {
 	private String loginName;
 	private String name;
@@ -22,8 +23,12 @@ public class User extends IdEntity {
 	private String password;
 	private String salt;
 	private String roles;
+
 	private Date registerDate;
+
+//	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Task> tasks;
+
 
 	public User() {
 	}
@@ -52,6 +57,7 @@ public class User extends IdEntity {
 
 	// 不持久化到数据库，也不显示在Restful接口的属性.
 	@Transient
+	@Access(AccessType.PROPERTY)
 	@JsonIgnore
 	public String getPlainPassword() {
 		return plainPassword;
@@ -113,6 +119,10 @@ public class User extends IdEntity {
 
 	@Override
 	public String toString() {
+
 		return ToStringBuilder.reflectionToString(this);
+	}
+	public void test(List<Task> tasks){
+		this.tasks=tasks;
 	}
 }
